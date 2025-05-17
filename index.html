@@ -1,96 +1,335 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>روابطي الاجتماعية</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Social Links</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        html, body {
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Cairo', Arial, sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #052797 0%, #c7ed75 100%);
+            min-height: 100vh;
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
             margin: 0;
-            direction: rtl;
+            direction: ltr;
         }
         .container {
             text-align: center;
-            background: #f0a5a5;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgb(0, 0, 0);
-            position: relative;
-            overflow: visible;
-        }
-        .social-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 15px;
-            padding: 15px 30px;
-            font-size: 20px;
-            color: white;
-            background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 16px rgba(0,123,255,0.15);
+            background: rgba(255,255,255,0.12);
+            padding: 4vw 2vw;         /* كان 7vw 4vw */
+            border-radius: 3vw;       /* كان 6vw */
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+            backdrop-filter: blur(6px);
+            margin-top: 4vw;          /* كان 7vw */
             position: relative;
             overflow: hidden;
+            width: 92vw;              /* كان 98vw */
+            max-width: 340px;         /* كان 430px */
+        }
+        h1 {
+            color: #fff;
+            margin-bottom: 6vw;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+            font-size: 6vw;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .social-button {
+            display: flex;
+            align-items: center;
+            gap: 4vw;                 /* رجعت كما كانت */
+            margin: 4vw auto;         /* رجعت كما كانت */
+            padding: 4vw 6vw;         /* رجعت كما كانت */
+            font-size: 4.2vw;         /* رجعت كما كانت */
+            color: #fff;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            width: 96%;
+            max-width: 340px;         /* رجعت كما كانت */
+            font-weight: 600;
+            background: linear-gradient(90deg, #4267B2 0%, #2948ff 100%);
+            position: relative;
+            z-index: 1;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .social-button.facebook {
+            background: linear-gradient(90deg, #4267B2 0%, #2948ff 100%);
+        }
+        .social-button.instagram {
+            background: linear-gradient(90deg, #fd5d47 0%, #fcb045 100%);
+        }
+        .social-button.whatsapp {
+            background: linear-gradient(90deg, #25d366 0%, #128C7E 100%);
         }
         .social-button:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 24px rgba(0,123,255,0.25);
+            transform: scale(1.06);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            filter: brightness(1.08);
         }
         .social-icon {
-            width: 28px;
-            height: 28px;
+            font-size: 6vw;           /* رجعت كما كانت */
             vertical-align: middle;
         }
-        /* Bubble animation */
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.7;
-            pointer-events: none;
-            animation: bubble-pop 0.8s forwards;
-            z-index: 10;
+        .animated-gif {
+            /* Remove all previous styles except animation */
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            object-fit: unset !important;
+            width: 6vw;
+            height: 6vw;
+            min-width: 40px;
+            min-height: 40px;
+            max-width: 60px;
+            max-height: 60px;
+            margin-bottom: 4vw;
+            position: relative;
+            z-index: 1;
+            animation: warning-blink 1s linear infinite;
+            opacity: 1;
+            color: #ffb300 !important;
+            display: inline-block;
         }
-        @keyframes bubble-pop {
-            0% {
-                transform: scale(0.5);
-                opacity: 0.8;
+        .animated-gif.bottom {
+            margin-top: 24px !important;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes spin-fade {
+            0%   { opacity: 1; transform: scale(1) rotate(0deg);}
+            60%  { opacity: 0; transform: scale(0.7) rotate(270deg);}
+            80%  { opacity: 0; transform: scale(0.7) rotate(320deg);}
+            100% { opacity: 1; transform: scale(1) rotate(360deg);}
+        }
+        @keyframes warning-blink {
+            0%   { opacity: 1; }
+            40%  { opacity: 0; }
+            60%  { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .moving-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 7vw;
+            color: #eee;
+            font-size: 3.5vw;
+            font-family: 'Inter', Arial, sans-serif;
+            letter-spacing: 1px;
+            background: rgba(0,0,0,0.18);
+            padding: 3vw 0 2vw 0;
+            border-radius: 4vw;
+            width: 96vw;
+            max-width: 430px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+        }
+        @media (min-width: 500px) {
+            .container {
+                padding: 40px 30px;
+                border-radius: 24px;
+                margin-top: 40px;
+                max-width: 430px;
             }
-            80% {
-                transform: scale(2.5);
-                opacity: 0.5;
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 30px;
             }
-            100% {
-                transform: scale(3);
-                opacity: 0;
+            .social-button {
+                font-size: 1.1rem;
+                padding: 16px 36px;
+                gap: 16px;
+            }
+            .social-icon {
+                font-size: 30px;
+            }
+            .animated-gif {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 18px;
+            }
+            footer {
+                font-size: 1rem;
+                padding: 14px 0 10px 0;
+                border-radius: 12px;
+                max-width: 430px;
+                margin-top: 40px;
             }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>تواصل معي</h1>
-        <a href="https://www.facebook.com/RONYMASRvvv" class="social-button" target="_blank">
-            <span>
-                <svg class="social-icon" viewBox="0 0 32 32" fill="#fff"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.7 0 3.2 0.1 3.6 0.2v4.2h-2.5c-2 0-2.4 1-2.4 2.4v3.2h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z"/></svg>
-            </span>
-            فيسبوك
+<body style="position:relative; min-height:100vh; margin:0; padding:0; overflow-x:hidden;">
+    <!-- Matrix-style falling green code background -->
+    <div id="matrix-bg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-2;pointer-events:none;overflow:hidden;"></div>
+    <div class="container" style="position:relative; overflow:hidden;">
+        <!-- Animated colorful lines filling the bubble -->
+        <svg class="moving-lines" width="100%" height="100%" style="position:absolute;top:0;left:0;z-index:0;pointer-events:none;">
+            <line x1="10" y1="20" x2="360" y2="20" stroke="#00e6ff" stroke-width="3" opacity="0.45">
+                <animate attributeName="x1" values="10;360;10" dur="4s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="360;10;360" dur="4s" repeatCount="indefinite"/>
+            </line>
+            <line x1="40" y1="60" x2="320" y2="60" stroke="#ff3b3b" stroke-width="3" opacity="0.40">
+                <animate attributeName="x1" values="40;320;40" dur="5s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="320;40;320" dur="5s" repeatCount="indefinite"/>
+            </line>
+            <line x1="80" y1="100" x2="280" y2="100" stroke="#ffd700" stroke-width="3" opacity="0.42">
+                <animate attributeName="x1" values="80;280;80" dur="6s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="280;80;280" dur="6s" repeatCount="indefinite"/>
+            </line>
+            <line x1="20" y1="140" x2="350" y2="140" stroke="#00ff90" stroke-width="3" opacity="0.38">
+                <animate attributeName="x1" values="20;350;20" dur="4.2s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="350;20;350" dur="4.2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="60" y1="180" x2="300" y2="180" stroke="#ff6f61" stroke-width="3" opacity="0.43">
+                <animate attributeName="x1" values="60;300;60" dur="5.3s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="300;60;300" dur="5.3s" repeatCount="indefinite"/>
+            </line>
+            <line x1="30" y1="220" x2="340" y2="220" stroke="#6a89cc" stroke-width="3" opacity="0.41">
+                <animate attributeName="x1" values="30;340;30" dur="4.7s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="340;30;340" dur="4.7s" repeatCount="indefinite"/>
+            </line>
+            <line x1="100" y1="260" x2="250" y2="260" stroke="#38ada9" stroke-width="3" opacity="0.44">
+                <animate attributeName="x1" values="100;250;100" dur="6.1s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="250;100;250" dur="6.1s" repeatCount="indefinite"/>
+            </line>
+            <line x1="50" y1="300" x2="310" y2="300" stroke="#ff5eae" stroke-width="3" opacity="0.39">
+                <animate attributeName="x1" values="50;310;50" dur="3.8s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="310;50;310" dur="3.8s" repeatCount="indefinite"/>
+            </line>
+            <line x1="120" y1="340" x2="220" y2="340" stroke="#00b894" stroke-width="3" opacity="0.45">
+                <animate attributeName="x1" values="120;220;120" dur="5.5s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="220;120;220" dur="5.5s" repeatCount="indefinite"/>
+            </line>
+            <line x1="70" y1="380" x2="290" y2="380" stroke="#fdcb6e" stroke-width="3" opacity="0.40">
+                <animate attributeName="x1" values="70;290;70" dur="4.4s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="290;70;290" dur="4.4s" repeatCount="indefinite"/>
+            </line>
+            <!-- More lines to fill the bubble -->
+            <line x1="20" y1="420" x2="350" y2="420" stroke="#e17055" stroke-width="3" opacity="0.42">
+                <animate attributeName="x1" values="20;350;20" dur="4.9s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="350;20;350" dur="4.9s" repeatCount="indefinite"/>
+            </line>
+            <line x1="90" y1="460" x2="270" y2="460" stroke="#00cec9" stroke-width="3" opacity="0.43">
+                <animate attributeName="x1" values="90;270;90" dur="5.7s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="270;90;270" dur="5.7s" repeatCount="indefinite"/>
+            </line>
+            <line x1="60" y1="500" x2="300" y2="500" stroke="#fab1a0" stroke-width="3" opacity="0.41">
+                <animate attributeName="x1" values="60;300;60" dur="4.3s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="300;60;300" dur="4.3s" repeatCount="indefinite"/>
+            </line>
+            <line x1="110" y1="540" x2="230" y2="540" stroke="#636e72" stroke-width="3" opacity="0.44">
+                <animate attributeName="x1" values="110;230;110" dur="3.9s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="230;110;230" dur="3.9s" repeatCount="indefinite"/>
+            </line>
+            <line x1="30" y1="580" x2="340" y2="580" stroke="#6c5ce7" stroke-width="3" opacity="0.40">
+                <animate attributeName="x1" values="30;340;30" dur="5.2s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="340;30;340" dur="5.2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="100" y1="620" x2="250" y2="620" stroke="#fd79a8" stroke-width="3" opacity="0.43">
+                <animate attributeName="x1" values="100;250;100" dur="4.6s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="250;100;250" dur="4.6s" repeatCount="indefinite"/>
+            </line>
+            <line x1="50" y1="660" x2="310" y2="660" stroke="#b8e994" stroke-width="3" opacity="0.41">
+                <animate attributeName="x1" values="50;310;50" dur="6.3s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="310;50;310" dur="6.3s" repeatCount="indefinite"/>
+            </line>
+            <line x1="120" y1="700" x2="220" y2="700" stroke="#ffeaa7" stroke-width="3" opacity="0.44">
+                <animate attributeName="x1" values="120;220;120" dur="5.8s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="220;120;220" dur="5.8s" repeatCount="indefinite"/>
+            </line>
+            <line x1="70" y1="740" x2="290" y2="740" stroke="#f8c291" stroke-width="3" opacity="0.40">
+                <animate attributeName="x1" values="70;290;70" dur="4.1s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="290;70;290" dur="4.1s" repeatCount="indefinite"/>
+            </line>
+        </svg>
+        <!-- Warning icon above the title -->
+        <i class="fas fa-triangle-exclamation animated-gif" style="color:#ffb300; font-size:12vw; display:inline-block; position:relative; z-index:1;"></i>
+        <h1 style="position:relative;z-index:1;">Contact Me</h1>
+        <a href="https://www.facebook.com/RONYMASRvvv" class="social-button facebook" target="_blank" style="position:relative;z-index:1;">
+            <span><i class="fab fa-facebook-f social-icon"></i></span>
+            Facebook
         </a>
-        <a href="https://www.instagram.com/24h_.__" class="social-button" target="_blank">
-            <span>
-                <svg class="social-icon" viewBox="0 0 32 32" fill="#fff"><path d="M16 7.3c2.1 0 2.4 0 3.2 0 0.8 0 1.3 0.2 1.6 0.3 0.4 0.2 0.7 0.4 1 0.7 0.3 0.3 0.5 0.6 0.7 1 0.1 0.3 0.3 0.8 0.3 1.6 0 0.8 0 1.1 0 3.2s0 2.4 0 3.2c0 0.8-0.2 1.3-0.3 1.6-0.2 0.4-0.4 0.7-0.7 1-0.3 0.3-0.6 0.5-1 0.7-0.3 0.1-0.8 0.3-1.6 0.3-0.8 0-1.1 0-3.2 0s-2.4 0-3.2 0c-0.8 0-1.3-0.2-1.6-0.3-0.4-0.2-0.7-0.4-1-0.7-0.3-0.3-0.5-0.6-0.7-1-0.1-0.3-0.3-0.8-0.3-1.6 0-0.8 0-1.1 0-3.2s0-2.4 0-3.2c0-0.8 0.2-1.3 0.3-1.6 0.2-0.4 0.4-0.7 0.7-1 0.3-0.3 0.6-0.5 1-0.7 0.3-0.1 0.8-0.3 1.6-0.3 0.8 0 1.1 0 3.2 0zM16 5c-2.2 0-2.5 0-3.4 0-0.9 0-1.5 0.2-2 0.4-0.6 0.2-1.1 0.5-1.6 1-0.5 0.5-0.8 1-1 1.6-0.2 0.5-0.4 1.1-0.4 2 0 0.9 0 1.2 0 3.4s0 2.5 0 3.4c0 0.9 0.2 1.5 0.4 2 0.2 0.6 0.5 1.1 1 1.6 0.5 0.5 1 0.8 1.6 1 0.5 0.2 1.1 0.4 2 0.4 0.9 0 1.2 0 3.4 0s2.5 0 3.4 0c0.9 0 1.5-0.2 2-0.4 0.6-0.2 1.1-0.5 1.6-1 0.5-0.5 0.8-1 1-1.6 0.2-0.5 0.4-1.1 0.4-2 0-0.9 0-1.2 0-3.4s0-2.5 0-3.4c0-0.9-0.2-1.5-0.4-2-0.2-0.6-0.5-1.1-1-1.6-0.5-0.5-1-0.8-1.6-1-0.5-0.2-1.1-0.4-2-0.4-0.9 0-1.2 0-3.4 0z"/><circle cx="16" cy="16" r="4.3"/><circle cx="24.5" cy="7.5" r="1.5"/></svg>
-            </span>
-            انستجرام
-        </a> 
-        <a href="https://wa.me/201090833092"  class="social-button" target="_blank">
-            <span> واتساب
-                <svg class="social-icon" viewBox="0 0 32 32" fill="#fff"><path d="M16 3c-7.2 0-13 5.8-13 13 0 2.3 0.6 4.5 1.7 6.5l-1.8 6.5 6.7-1.8c1.9 1 4 1.6 6.4 1.6 7.2 0 13-5.8 13-13s-5.8-13-13-13zM16 27c-2.1 0-4.1-0.5-5.8-1.5l-0.4-0.2-4 1.1 1.1-3.9-0.2-0.4c-1-1.7-1.5-3.7-1.5-5.8 0-6.1 4.9-11 11-11s11 4.9 11 11-4.9 11-11 11z"/><path d="M23.1 19.6c-0.3-0.2-1.7-0.8-2-0.9-0.3-0.1-0.5-0.2-0.7 0.2-0.2 0.3-0.8 0.9-1 1.1-0.2 0.2-0.4 0.2-0.7 0.1-0.3-0.2-1.3-0.5-2.5-1.5-0.9-0.8-1.5-1.7-1.7-2-0.2-0.3 0-0.5 0.1-0.7 0.1-0.1 0.2-0.3 0.3-0.4 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-0.2 0.2-0.3 0.1-0.1 0.1-<!-- filepath: c:\Users\redaco\Desktop\New fold\my-social-links-site\index.html -->
+        <a href="https://www.instagram.com/24h_.__" class="social-button instagram" target="_blank" style="position:relative;z-index:1;">
+            <span><i class="fab fa-instagram social-icon"></i></span>
+            Instagram
+        </a>
+        <a href="https://wa.me/201090833092" class="social-button whatsapp" target="_blank" style="position:relative;z-index:1;">
+            <span><i class="fab fa-whatsapp social-icon"></i></span>
+            WhatsApp
+        </a>
+        <!-- Warning icon below the buttons -->
+        <i class="fas fa-triangle-exclamation animated-gif" style="color:#ffb300; font-size:12vw; display:inline-block; margin-top:24px; position:relative; z-index:1;"></i>
+    </div>
+    <footer>
+        All rights reserved &copy; Ahmed Ramadan 2025
+    </footer>
+    <script>
+        // Matrix effect
+        const canvas = document.createElement('canvas');
+        canvas.style.width = '100vw';
+        canvas.style.height = '100vh';
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.zIndex = '-2';
+        canvas.style.pointerEvents = 'none';
+        document.getElementById('matrix-bg').appendChild(canvas);
+
+        function resizeMatrix() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeMatrix();
+        window.addEventListener('resize', resizeMatrix);
+
+        const ctx = canvas.getContext('2d');
+        const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const fontSize = 18;
+        let columns = Math.floor(window.innerWidth / fontSize);
+        let drops = Array(columns).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.13)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = fontSize + "px monospace";
+            ctx.fillStyle = "#00FF41";
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 40);
+    </script>
+</body>
+</html>
