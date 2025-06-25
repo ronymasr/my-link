@@ -2,334 +2,340 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>My Social Links</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Ramadan | Modern Profile & CV</title>
     <style>
-        html, body {
-            width: 100%;
-            min-height: 100%;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #2563eb;      /* Blue - رئيسي */
+            --secondary: #06b6d4;    /* Cyan - ثانوي */
+            --accent: #f59e42;       /* Orange - إبراز */
+            --bg: #f4f7fa;           /* خلفية فاتحة */
+            --text: #1e293b;         /* رمادي غامق للنص */
+            --white: #ffffff;
+            --shadow: 0 4px 24px rgba(37,99,235,0.10);
         }
         body {
-            font-family: 'Inter', Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #232526 0%, #414345 100%);
             margin: 0;
-            direction: ltr;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.5s;
         }
-        .container {
+        header {
+            background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+            color: var(--white);
             text-align: center;
-            background: rgba(255,255,255,0.12);
-            padding: 4vw 2vw;         /* كان 7vw 4vw */
-            border-radius: 3vw;       /* كان 6vw */
-            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-            backdrop-filter: blur(6px);
-            margin-top: 4vw;          /* كان 7vw */
+            padding: 2.5rem 1rem 2rem 1rem;
+            border-radius: 0 0 40px 40px;
+            box-shadow: var(--shadow);
             position: relative;
-            overflow: hidden;
-            width: 92vw;              /* كان 98vw */
-            max-width: 340px;         /* كان 430px */
         }
-        h1 {
-            color: #fff;
-            margin-bottom: 6vw;
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
             letter-spacing: 2px;
-            position: relative;
-            z-index: 1;
-            font-size: 6vw;
-            font-family: 'Inter', Arial, sans-serif;
+            animation: fadeInDown 1s;
         }
-        .social-button {
-            display: flex;
-            align-items: center;
-            gap: 4vw;                 /* رجعت كما كانت */
-            margin: 4vw auto;         /* رجعت كما كانت */
-            padding: 4vw 6vw;         /* رجعت كما كانت */
-            font-size: 4.2vw;         /* رجعت كما كانت */
-            color: #fff;
-            border: none;
-            border-radius: 60px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-            width: 96%;
-            max-width: 340px;         /* رجعت كما كانت */
-            font-weight: 600;
-            background: linear-gradient(90deg, #4267B2 0%, #2948ff 100%);
-            position: relative;
-            z-index: 1;
-            font-family: 'Inter', Arial, sans-serif;
+        header p {
+            margin: 0.7rem 0 0 0;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--accent);
+            animation: fadeInDown 1.3s;
         }
-        .social-button.facebook {
-            background: linear-gradient(90deg, #4267B2 0%, #2948ff 100%);
-        }
-        .social-button.instagram {
-            background: linear-gradient(90deg, #fd5d47 0%, #fcb045 100%);
-        }
-        .social-button.whatsapp {
-            background: linear-gradient(90deg, #25d366 0%, #128C7E 100%);
-        }
-        .social-button:hover {
-            transform: scale(1.06);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-            filter: brightness(1.08);
-        }
-        .social-icon {
-            font-size: 6vw;           /* رجعت كما كانت */
-            vertical-align: middle;
-        }
-        .animated-gif {
-            /* Remove all previous styles except animation */
-            background: none !important;
-            border: none !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-            object-fit: unset !important;
-            width: 6vw;
-            height: 6vw;
-            min-width: 40px;
-            min-height: 40px;
-            max-width: 60px;
-            max-height: 60px;
-            margin-bottom: 4vw;
-            position: relative;
-            z-index: 1;
-            animation: warning-blink 1s linear infinite;
-            opacity: 1;
-            color: #ffb300 !important;
-            display: inline-block;
-        }
-        .animated-gif.bottom {
-            margin-top: 24px !important;
-            animation-delay: 0.5s;
-        }
-
-        @keyframes spin-fade {
-            0%   { opacity: 1; transform: scale(1) rotate(0deg);}
-            60%  { opacity: 0; transform: scale(0.7) rotate(270deg);}
-            80%  { opacity: 0; transform: scale(0.7) rotate(320deg);}
-            100% { opacity: 1; transform: scale(1) rotate(360deg);}
-        }
-        @keyframes warning-blink {
-            0%   { opacity: 1; }
-            40%  { opacity: 0; }
-            60%  { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        .moving-lines {
+        .lang-switch {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
+            top: 18px;
+            right: 24px;
+            background: var(--white);
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            padding: 0.4rem 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,150,136,0.08);
+            transition: background 0.2s, color 0.2s;
         }
-        footer {
-            text-align: center;
-            margin-top: 7vw;
-            color: #eee;
-            font-size: 3.5vw;
-            font-family: 'Inter', Arial, sans-serif;
-            letter-spacing: 1px;
-            background: rgba(0,0,0,0.18);
-            padding: 3vw 0 2vw 0;
-            border-radius: 4vw;
-            width: 96vw;
-            max-width: 430px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+        .lang-switch:hover {
+            background: var(--accent);
+            color: var(--white);
         }
-        @media (min-width: 500px) {
-            .container {
-                padding: 40px 30px;
-                border-radius: 24px;
-                margin-top: 40px;
-                max-width: 430px;
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+        section {
+            background: var(--white);
+            margin: 2rem 0;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.07);
+            padding: 2rem;
+            animation: fadeInUp 1.2s;
+        }
+        h2 {
+            color: var(--primary);
+        }
+        .socials {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .socials a {
+            color: var(--primary);
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .socials a:hover {
+            color: var(--accent);
+            transform: scale(1.1) rotate(-3deg);
+        }
+        .icon {
+            width: 26px;
+            height: 26px;
+            vertical-align: middle;
+            transition: filter 0.2s;
+        }
+        .socials a:hover .icon {
+            filter: drop-shadow(0 0 8px var(--accent));
+        }
+        @media (max-width: 700px) {
+            section {
+                padding: 1.2rem;
             }
-            h1 {
+            header h1 {
                 font-size: 2rem;
-                margin-bottom: 30px;
             }
-            .social-button {
-                font-size: 1.1rem;
-                padding: 16px 36px;
-                gap: 16px;
-            }
-            .social-icon {
-                font-size: 30px;
-            }
-            .animated-gif {
-                width: 80px;
-                height: 80px;
-                margin-bottom: 18px;
-            }
-            footer {
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+                padding: 0.3rem 0.7rem;
                 font-size: 1rem;
-                padding: 14px 0 10px 0;
-                border-radius: 12px;
-                max-width: 430px;
-                margin-top: 40px;
+                min-width: 80px;
             }
+            .socials {
+                gap: 1rem;
+            }
+            ul, p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+            /* زيادة المسافة بين العناصر */
+            ul li {
+                margin-bottom: 0.7em;
+            }
+            /* تكبير الأزرار */
+            button, .lang-switch {
+                font-size: 1.1rem;
+                padding: 0.5rem 1.2rem;
+            }
+        }
+        /* تأثيرات عند تمرير الماوس على الأقسام والعناوين */
+        section:hover {
+            box-shadow: 0 4px 24px rgba(6,182,212,0.13);
+            transform: translateY(-2px) scale(1.01);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        h2:hover {
+            color: var(--accent);
+            transition: color 0.2s;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
         }
     </style>
 </head>
-<body style="position:relative; min-height:100vh; margin:0; padding:0; overflow-x:hidden;">
-    <!-- Matrix-style falling green code background -->
-    <div id="matrix-bg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-2;pointer-events:none;overflow:hidden;"></div>
-    <div class="container" style="position:relative; overflow:hidden;">
-        <!-- Animated colorful lines filling the bubble -->
-        <svg class="moving-lines" width="100%" height="100%" style="position:absolute;top:0;left:0;z-index:0;pointer-events:none;">
-            <line x1="10" y1="20" x2="360" y2="20" stroke="#00e6ff" stroke-width="3" opacity="0.45">
-                <animate attributeName="x1" values="10;360;10" dur="4s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="360;10;360" dur="4s" repeatCount="indefinite"/>
-            </line>
-            <line x1="40" y1="60" x2="320" y2="60" stroke="#ff3b3b" stroke-width="3" opacity="0.40">
-                <animate attributeName="x1" values="40;320;40" dur="5s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="320;40;320" dur="5s" repeatCount="indefinite"/>
-            </line>
-            <line x1="80" y1="100" x2="280" y2="100" stroke="#ffd700" stroke-width="3" opacity="0.42">
-                <animate attributeName="x1" values="80;280;80" dur="6s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="280;80;280" dur="6s" repeatCount="indefinite"/>
-            </line>
-            <line x1="20" y1="140" x2="350" y2="140" stroke="#00ff90" stroke-width="3" opacity="0.38">
-                <animate attributeName="x1" values="20;350;20" dur="4.2s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="350;20;350" dur="4.2s" repeatCount="indefinite"/>
-            </line>
-            <line x1="60" y1="180" x2="300" y2="180" stroke="#ff6f61" stroke-width="3" opacity="0.43">
-                <animate attributeName="x1" values="60;300;60" dur="5.3s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="300;60;300" dur="5.3s" repeatCount="indefinite"/>
-            </line>
-            <line x1="30" y1="220" x2="340" y2="220" stroke="#6a89cc" stroke-width="3" opacity="0.41">
-                <animate attributeName="x1" values="30;340;30" dur="4.7s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="340;30;340" dur="4.7s" repeatCount="indefinite"/>
-            </line>
-            <line x1="100" y1="260" x2="250" y2="260" stroke="#38ada9" stroke-width="3" opacity="0.44">
-                <animate attributeName="x1" values="100;250;100" dur="6.1s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="250;100;250" dur="6.1s" repeatCount="indefinite"/>
-            </line>
-            <line x1="50" y1="300" x2="310" y2="300" stroke="#ff5eae" stroke-width="3" opacity="0.39">
-                <animate attributeName="x1" values="50;310;50" dur="3.8s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="310;50;310" dur="3.8s" repeatCount="indefinite"/>
-            </line>
-            <line x1="120" y1="340" x2="220" y2="340" stroke="#00b894" stroke-width="3" opacity="0.45">
-                <animate attributeName="x1" values="120;220;120" dur="5.5s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="220;120;220" dur="5.5s" repeatCount="indefinite"/>
-            </line>
-            <line x1="70" y1="380" x2="290" y2="380" stroke="#fdcb6e" stroke-width="3" opacity="0.40">
-                <animate attributeName="x1" values="70;290;70" dur="4.4s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="290;70;290" dur="4.4s" repeatCount="indefinite"/>
-            </line>
-            <!-- More lines to fill the bubble -->
-            <line x1="20" y1="420" x2="350" y2="420" stroke="#e17055" stroke-width="3" opacity="0.42">
-                <animate attributeName="x1" values="20;350;20" dur="4.9s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="350;20;350" dur="4.9s" repeatCount="indefinite"/>
-            </line>
-            <line x1="90" y1="460" x2="270" y2="460" stroke="#00cec9" stroke-width="3" opacity="0.43">
-                <animate attributeName="x1" values="90;270;90" dur="5.7s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="270;90;270" dur="5.7s" repeatCount="indefinite"/>
-            </line>
-            <line x1="60" y1="500" x2="300" y2="500" stroke="#fab1a0" stroke-width="3" opacity="0.41">
-                <animate attributeName="x1" values="60;300;60" dur="4.3s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="300;60;300" dur="4.3s" repeatCount="indefinite"/>
-            </line>
-            <line x1="110" y1="540" x2="230" y2="540" stroke="#636e72" stroke-width="3" opacity="0.44">
-                <animate attributeName="x1" values="110;230;110" dur="3.9s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="230;110;230" dur="3.9s" repeatCount="indefinite"/>
-            </line>
-            <line x1="30" y1="580" x2="340" y2="580" stroke="#6c5ce7" stroke-width="3" opacity="0.40">
-                <animate attributeName="x1" values="30;340;30" dur="5.2s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="340;30;340" dur="5.2s" repeatCount="indefinite"/>
-            </line>
-            <line x1="100" y1="620" x2="250" y2="620" stroke="#fd79a8" stroke-width="3" opacity="0.43">
-                <animate attributeName="x1" values="100;250;100" dur="4.6s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="250;100;250" dur="4.6s" repeatCount="indefinite"/>
-            </line>
-            <line x1="50" y1="660" x2="310" y2="660" stroke="#b8e994" stroke-width="3" opacity="0.41">
-                <animate attributeName="x1" values="50;310;50" dur="6.3s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="310;50;310" dur="6.3s" repeatCount="indefinite"/>
-            </line>
-            <line x1="120" y1="700" x2="220" y2="700" stroke="#ffeaa7" stroke-width="3" opacity="0.44">
-                <animate attributeName="x1" values="120;220;120" dur="5.8s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="220;120;220" dur="5.8s" repeatCount="indefinite"/>
-            </line>
-            <line x1="70" y1="740" x2="290" y2="740" stroke="#f8c291" stroke-width="3" opacity="0.40">
-                <animate attributeName="x1" values="70;290;70" dur="4.1s" repeatCount="indefinite"/>
-                <animate attributeName="x2" values="290;70;290" dur="4.1s" repeatCount="indefinite"/>
-            </line>
-        </svg>
-        <!-- Warning icon above the title -->
-        <i class="fas fa-triangle-exclamation animated-gif" style="color:#ffb300; font-size:12vw; display:inline-block; position:relative; z-index:1;"></i>
-        <h1 style="position:relative;z-index:1;">Contact Me</h1>
-        <a href="https://www.facebook.com/RONYMASRvvv" class="social-button facebook" target="_blank" style="position:relative;z-index:1;">
-            <span><i class="fab fa-facebook-f social-icon"></i></span>
-            Facebook
-        </a>
-        <a href="https://www.instagram.com/24h_.__" class="social-button instagram" target="_blank" style="position:relative;z-index:1;">
-            <span><i class="fab fa-instagram social-icon"></i></span>
-            Instagram
-        </a>
-        <a href="https://wa.me/201090833092" class="social-button whatsapp" target="_blank" style="position:relative;z-index:1;">
-            <span><i class="fab fa-whatsapp social-icon"></i></span>
-            WhatsApp
-        </a>
-        <!-- Warning icon below the buttons -->
-        <i class="fas fa-triangle-exclamation animated-gif" style="color:#ffb300; font-size:12vw; display:inline-block; margin-top:24px; position:relative; z-index:1;"></i>
-    </div>
-    <footer>
-        All rights reserved &copy; Ahmed Ramadan 2025
+<body>
+    <header>
+        <button class="lang-switch" id="lang-switch" aria-label="تبديل اللغة">العربية</button>
+        <a href="cv.pdf" download class="lang-switch" style="left:24px;right:auto;top:18px;position:absolute;" aria-label="Download CV">Download CV</a>
+        <h1 id="name">Ahmed Ramadan</h1>
+        <p id="title">Front-End Website Designer | Information Systems Student at MCI Academy</p>
+
+    </header>
+    <main>
+        <section id="about">
+            <h2 id="about-title">About Me</h2>
+            <p id="about-text">
+                My name is Ahmed Ramadan, born on 1/3/2005 (20 years old), and I am currently studying Information Systems at MCI Academy.<br><br>
+                I am passionate about technology and web development, and I specialize in designing and building modern, responsive, and user-friendly websites.<br><br>
+                My main focus is on front-end development using <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b>. I always strive to create visually appealing and accessible interfaces that provide an excellent user experience on all devices.<br><br>
+                I have a strong eye for detail and a deep understanding of UI/UX principles, which helps me deliver pixel-perfect designs.<br><br>
+                I am always eager to learn new technologies and keep up with the latest trends in web design. I enjoy working on creative projects and collaborating with others to turn ideas into reality.<br><br>
+                My goal is to help individuals and businesses establish a strong online presence through beautiful and effective websites.<br><br>
+                If you are looking for a dedicated and creative front-end designer, feel free to contact me through my social media accounts above!
+            </p>
+        </section>
+        <section id="experience">
+            <h2 id="exp-title">Experience</h2>
+            <ul id="exp-list">
+                <li>Freelance Front-End Designer (2022 - Present)</li>
+                <li>Personal Projects: Portfolio, Landing Pages, UI/UX Demos</li>
+                <li>Collaborated with student teams on academic web projects at MCI Academy</li>
+            </ul>
+        </section>
+        <section id="skills">
+            <h2 id="skills-title">Skills</h2>
+            <ul id="skills-list">
+                <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                <li>Responsive Web Design & Mobile First</li>
+                <li>UI/UX Principles & Accessibility</li>
+                <li>Modern CSS (Flexbox, Grid, Animations)</li>
+                <li>Version Control (Git)</li>
+                <li>Teamwork & Communication</li>
+            </ul>
+        </section>
+        <section id="projects">
+            <h2 id="projects-title">Projects</h2>
+            <ul id="projects-list">
+                <li>تم إنشاء عدد 7 مشاريع خاصة وسرية</li>
+            </ul>
+        </section>
+        <section id="social-media" style="padding-bottom: 1.5rem;">
+            <h2 id="connect-title" style="margin-top:0;">Connect with Me</h2>
+            <div class="socials" style="margin-top: 1.5rem;">
+                <a href="https://www.facebook.com/RONYMASRvvv" target="_blank" title="Facebook" aria-label="Facebook">
+                    <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24H12.82v-9.294H9.692V11.01h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.696h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"></path>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/24h_.__" target="_blank" title="Instagram" aria-label="Instagram">
+                    <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.011 3.584-.069 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.011-4.85-.069c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.515 2.497 5.782 2.225 7.148 2.163 8.414 2.105 8.794 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.775.13 4.602.403 3.635 1.37 2.668 2.337 2.395 3.51 2.337 4.788 2.278 6.068 2.265 6.477 2.265 12c0 5.523.013 5.932.072 7.212.058 1.278.331 2.451 1.298 3.418.967.967 2.14 1.24 3.418 1.298 1.28.059 1.689.072 7.212.072s5.932-.013 7.212-.072c1.278-.058 2.451-.331 3.418-1.298.967-.967 1.24-2.14 1.298-3.418.059-1.28.072-1.689.072-7.212s-.013-5.932-.072-7.212c-.058-1.278-.331-2.451-1.298-3.418C19.451.403 18.278.13 17 .072 15.72.013 15.311 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"></path>
+                    </svg>
+                </a>
+                <a href="https://wa.me/201090833092" target="_blank" title="WhatsApp" aria-label="WhatsApp">
+                    <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.366.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347zM12.004 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.462 3.479 1.337 4.985L2 22l5.116-1.342a9.953 9.953 0 0 0 4.888 1.247h.004c5.514 0 9.997-4.483 9.997-9.997 0-2.67-1.04-5.182-2.929-7.071A9.953 9.953 0 0 0 12.004 2.003zm5.993 15.99c-.26.737-1.522 1.415-2.13 1.507-.567.085-1.262.122-2.063-.13-3.555-1.23-5.84-4.771-6.025-5.002-.173-.23-1.44-1.92-1.44-3.66 0-1.74 1.096-2.594 1.484-2.95.388-.357 1.04-.476 1.34-.476.173 0 .346.002.497.009.157.007.37-.06.58.44.223.521.762 1.797.826 1.93.064.134.106.29.021.464-.085.174-.127.28-.25.44-.123.16-.26.356-.37.476-.123.123-.25.256-.11.5.14.245.62 1.02 1.33 1.65.91.81 1.68 1.06 1.93 1.18.25.12.39.1.53-.06.14-.16.61-.71.77-.95.16-.24.32-.2.54-.12.22.08 1.39.66 1.63.78.24.12.4.18.46.28.06.1.06.58-.2 1.32z"></path>
+                </svg>
+            </a>
+        </div>
+    </header>
+    <footer style="text-align:center;color:#888;padding:1.5rem 0 0.5rem 0;font-size:1rem;">
+        &copy; 2025 Ahmed Ramadan. All rights reserved.
     </footer>
     <script>
-        // Matrix effect
-        const canvas = document.createElement('canvas');
-        canvas.style.width = '100vw';
-        canvas.style.height = '100vh';
-        canvas.style.position = 'absolute';
-        canvas.style.top = '0';
-        canvas.style.left = '0';
-        canvas.style.zIndex = '-2';
-        canvas.style.pointerEvents = 'none';
-        document.getElementById('matrix-bg').appendChild(canvas);
+        // Language switcher logic
+        const langSwitch = document.getElementById('lang-switch');
+        const elements = {
+            name: document.getElementById('name'),
+            title: document.getElementById('title'),
+            aboutTitle: document.getElementById('about-title'),
+            aboutText: document.getElementById('about-text'),
+            expTitle: document.getElementById('exp-title'),
+            expList: document.getElementById('exp-list'),
+            skillsTitle: document.getElementById('skills-title'),
+            skillsList: document.getElementById('skills-list'),
+            projectsTitle: document.getElementById('projects-title'),
+            projectsList: document.getElementById('projects-list'),
+            connectTitle: document.getElementById('connect-title')
+        };
 
-        function resizeMatrix() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resizeMatrix();
-        window.addEventListener('resize', resizeMatrix);
-
-        const ctx = canvas.getContext('2d');
-        const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        const fontSize = 18;
-        let columns = Math.floor(window.innerWidth / fontSize);
-        let drops = Array(columns).fill(1);
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.13)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.font = fontSize + "px monospace";
-            ctx.fillStyle = "#00FF41";
-            for (let i = 0; i < drops.length; i++) {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
+        const translations = {
+            ar: {
+                name: "أحمد رمضان",
+                title: "مصمم واجهات أمامية | طالب نظم معلومات في أكاديمية MCI",
+                aboutTitle: "من أنا",
+                aboutText: `اسمي أحمد رمضان، من مواليد 1/3/2005 (20 سنة)، أدرس نظم المعلومات في أكاديمية MCI.<br><br>
+                شغوف بالتقنية وتطوير الويب، ومتخصص في تصميم وبناء مواقع عصرية وسهلة الاستخدام.<br><br>
+                أركز على تطوير الواجهات الأمامية باستخدام <b>HTML</b> و<b>CSS</b> و<b>JavaScript</b> وأسعى دائمًا لتقديم تجربة مستخدم ممتازة على جميع الأجهزة.<br><br>
+                أمتلك عينًا دقيقة للتفاصيل وفهمًا عميقًا لمبادئ تجربة المستخدم، مما يساعدني على تقديم تصاميم متقنة.<br><br>
+                أحب التعلم المستمر ومواكبة أحدث اتجاهات التصميم، وأستمتع بالعمل على مشاريع إبداعية.<br><br>
+                هدفي هو مساعدة الأفراد والشركات في بناء حضور قوي على الإنترنت من خلال مواقع فعالة وجذابة.<br><br>
+                إذا كنت تبحث عن مصمم واجهات أمامية مبدع وملتزم، لا تتردد في التواصل معي عبر وسائل التواصل أعلاه!`,
+                expTitle: "الخبرات",
+                expList: [
+                    "مصمم واجهات أمامية حر (2022 - الآن)",
+                    "مشاريع شخصية: معرض أعمال، صفحات هبوط، تجارب UI/UX",
+                    "التعاون مع فرق طلابية في مشاريع ويب أكاديمية"
+                ],
+                skillsTitle: "المهارات",
+                skillsList: [
+                    "HTML5, CSS3, JavaScript (ES6+)",
+                    "تصميم متجاوب وتجربة مستخدم",
+                    "مبادئ UI/UX وإمكانية الوصول",
+                    "CSS حديث (Flexbox, Grid, Animations)",
+                    "التحكم في الإصدارات (Git)",
+                    "العمل الجماعي والتواصل"
+                ],
+                projectsTitle: "المشاريع",
+                projectsList: [
+                    "تم إنشاء عدد 7 مشاريع خاصة وسرية"
+                ],
+                connectTitle: "تواصل معي"
+            },
+            en: {
+                name: "Ahmed Ramadan",
+                title: "Front-End Website Designer | Information Systems Student at MCI Academy",
+                aboutTitle: "About Me",
+                aboutText: `My name is Ahmed Ramadan, born on 1/3/2005 (20 years old), and I am currently studying Information Systems at MCI Academy.<br><br>
+                I am passionate about technology and web development, and I specialize in designing and building modern, responsive, and user-friendly websites.<br><br>
+                My main focus is on front-end development using <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b>. I always strive to create visually appealing and accessible interfaces that provide an excellent user experience on all devices.<br><br>
+                I have a strong eye for detail and a deep understanding of UI/UX principles, which helps me deliver pixel-perfect designs.<br><br>
+                I am always eager to learn new technologies and keep up with the latest trends in web design. I enjoy working on creative projects and collaborating with others to turn ideas into reality.<br><br>
+                My goal is to help individuals and businesses establish a strong online presence through beautiful and effective websites.<br><br>
+                If you are looking for a dedicated and creative front-end designer, feel free to contact me through my social media accounts above!`,
+                expTitle: "Experience",
+                expList: [
+                    "Freelance Front-End Designer (2022 - Present)",
+                    "Personal Projects: Portfolio, Landing Pages, UI/UX Demos",
+                    "Collaborated with student teams on academic web projects at MCI Academy"
+                ],
+                skillsTitle: "Skills",
+                skillsList: [
+                    "HTML5, CSS3, JavaScript (ES6+)",
+                    "Responsive Web Design & Mobile First",
+                    "UI/UX Principles & Accessibility",
+                    "Modern CSS (Flexbox, Grid, Animations)",
+                    "Version Control (Git)",
+                    "Teamwork & Communication"
+                ],
+                projectsTitle: "Projects",
+                projectsList: [
+                    "A total of 7 private and confidential projects have been created"
+                ],
+                connectTitle: "Connect with Me"
             }
+        };
+
+        let currentLang = 'en';
+
+        function updateLang(lang) {
+            const t = translations[lang];
+            elements.name.innerHTML = t.name;
+            elements.title.innerHTML = t.title;
+            elements.aboutTitle.innerHTML = t.aboutTitle;
+            elements.aboutText.innerHTML = t.aboutText;
+            elements.expTitle.innerHTML = t.expTitle;
+            elements.expList.innerHTML = t.expList.map(item => `<li>${item}</li>`).join('');
+            elements.skillsTitle.innerHTML = t.skillsTitle;
+            elements.skillsList.innerHTML = t.skillsList.map(item => `<li>${item}</li>`).join('');
+            elements.projectsTitle.innerHTML = t.projectsTitle;
+            elements.projectsList.innerHTML = t.projectsList.map(item => `<li>${item}</li>`).join('');
+            elements.connectTitle.innerHTML = t.connectTitle;
+            langSwitch.innerHTML = lang === 'en' ? 'العربية' : 'English';
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
         }
-        setInterval(drawMatrix, 40);
+
+        langSwitch.addEventListener('click', function() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            updateLang(currentLang);
+        });
+
+        // Responsive fix for mobile: ensure language switch works on all devices
+        window.addEventListener('DOMContentLoaded', function() {
+            updateLang(currentLang);
+        });
     </script>
 </body>
 </html>
