@@ -44,13 +44,12 @@ section{
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url('./programer.png') no-repeat center center/cover;
+    background: url('programer.png') no-repeat center center/cover;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     position: relative;
     color: #fff;
-    background-color: #222; /* مؤقت للتجربة */
 }
 .main h2{
     font-size: 1.4em;
@@ -233,9 +232,18 @@ footer{
         padding: 100px 5px 30px 5px;
     }
     .main {
-        background-attachment: fixed !important; /* الصورة تتحرك مع الصفحة على الهواتف */
-        
-    }
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url('./programer.png') no-repeat center center/cover;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    color: #fff;
+    background-color: #ec0606; /* مؤقت للتجربة */
+}
 }
 
 
