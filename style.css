@@ -232,7 +232,7 @@ footer{
         padding: 100px 5px 30px 5px;
     }
     .main {
-        background-attachment: cover ; /* الصورة تتحرك مع الصفحة على الهواتف */
+        background-attachment: scroll ; /* الصورة تتحرك مع الصفحة على الهواتف */
 
     }
 }
