@@ -44,7 +44,7 @@ section{
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url('programer.PNG') no-repeat center center/cover;
+    background: url('programer.png') no-repeat center center/cover;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -232,10 +232,8 @@ footer{
         padding: 100px 5px 30px 5px;
     }
     .main {
-        background-attachment: scroll !important; /* الصورة تتحرك مع الصفحة على الهواتف */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        background-attachment: fixed !important; /* الصورة تتحرك مع الصفحة على الهواتف */
+        
     }
 }
 
