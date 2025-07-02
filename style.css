@@ -231,13 +231,14 @@ footer{
     section {
         padding: 100px 5px 30px 5px;
     }
-    
+    .main {
+        background-attachment: fixed ; /* الصورة تتحرك مع الصفحة على الهواتف */
+    background: url('programer.PNG') no-repeat center center/cover;
+
+    }
 }
 
-/* ثبات الخلفية على الكمبيوتر */
-.main {
-    background-attachment: fixed;
-}
+
 
 
 
