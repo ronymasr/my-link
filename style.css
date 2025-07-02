@@ -232,8 +232,7 @@ footer{
         padding: 100px 5px 30px 5px;
     }
     .main {
-        background-attachment: fixed ; /* الصورة تتحرك مع الصفحة على الهواتف */
-    background: url('programer.PNG') no-repeat center center/cover;
+        background-attachment: cover ; /* الصورة تتحرك مع الصفحة على الهواتف */
 
     }
 }
