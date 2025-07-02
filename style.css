@@ -44,7 +44,7 @@ section{
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url('programer.png') no-repeat center center/cover;
+    background: url('./programer.png') no-repeat center center/cover;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
