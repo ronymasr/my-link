@@ -231,9 +231,7 @@ footer{
     section {
         padding: 100px 5px 30px 5px;
     }
-    .main {
-        background-attachment: fixed !important; /* الصورة تتحرك مع الصفحة على الهواتف */
-    }
+    
 }
 
 /* ثبات الخلفية على الكمبيوتر */
