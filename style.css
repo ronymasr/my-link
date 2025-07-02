@@ -232,17 +232,17 @@ footer{
         padding: 100px 5px 30px 5px;
     }
     .main {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background: url('./programer.png') no-repeat center center/cover;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    position: relative;
-    color: #fff;
-    background-color: #ec0606; /* مؤقت للتجربة */
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: url('./programer.png') no-repeat center center/cover;
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll; /* الحل هنا */
+        position: relative;
+        color: #fff;
+        /* background-color: #ec0606; */ /* احذفها إذا لم تعد تحتاجها */
 }
 }
 
