@@ -37,7 +37,7 @@ header{
     color: #4000ff;
 }
 section{
-    padding: 100px 200px;
+    padding: 120px 200px 60px 200px;
 }
 .main{
     width: 100%;
@@ -210,6 +210,35 @@ footer{
     transition:  0.7s ease;
     box-shadow: 0 25px 25px rgba(1, 1, 1, 0.15);
     
+}
+
+/* الهواتف */
+@media (max-width: 991px) {
+    header {
+        padding: 10px 20px;
+    }
+    section {
+        padding: 110px 10px 40px 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 5px;
+    }
+    section {
+        padding: 100px 5px 30px 5px;
+    }
+    .main {
+        background-attachment: fixed !important; /* الصورة تتحرك مع الصفحة على الهواتف */
+    }
+}
+
+/* ثبات الخلفية على الكمبيوتر */
+.main {
+    background-attachment: fixed;
 }
 
 
